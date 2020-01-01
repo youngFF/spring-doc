@@ -1,0 +1,24 @@
+项目目标：本项目旨在学习spring-framework
+
+学习资料：spring doc 官网下载一份即可
+
+项目结构：
+
+    spring-doc
+        spring-core
+        spring-test
+        spring-web
+        spring-integration
+        spring-boot
+        spring-session
+        spring-cloud
+
+学习步骤：
+    1.spring-core
+    2.spring-web
+    3.spring-test
+    4.spring-integration
+    5.spring-session
+    6.spring-cloud
+    7.spring-boot
+
