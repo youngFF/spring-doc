@@ -5,6 +5,11 @@
 
 
 
+
+
+    <!--配置项目gson-->
+    <bean id="gson" class="com.google.gson.Gson"/>
+
     <import resource="classpath:/config/app-config.xml"/>
 
 </beans>

@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j;
 import org.junit.After;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -20,15 +21,18 @@ public abstract class BaseTest {
     // object to be assigned
     protected Object result;
 
+    // applicationContext injected
+    @Autowired
+    protected ApplicationContext applicationContext;
+
 
     /**
-     * print result to gson
+     * print result to json
      *
      */
     @After
     public void printResult2Json() {
         String clazzName = getClass().getName();
-
         log.info(clazzName + " : " + gson.toJson(result));
     }
 }

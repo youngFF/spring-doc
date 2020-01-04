@@ -3,7 +3,38 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--配置项目gson-->
-    <bean id="gson" class="com.google.gson.Gson"/>
+
+    <bean id="user" class="com.hyena.spring.core.model.User">
+        <property name="age" value="12"/>
+        <property name="name" value="hyena"/>
+    </bean>
+
+
+    <bean id="customer" class="com.hyena.spring.core.model.Customer"
+        scope="singleton"
+        autowire="byType"
+        lazy-init="false"
+        init-method="init"
+        destroy-method="destroy">
+
+        <property name="name" value="jack"/>
+        <property name="age" value="12"/>
+        <!--<property name="user" ref="user"/>-->
+    </bean>
+
+
+    <bean id="anotherCustomer" class="com.hyena.spring.core.model.Customer">
+        <constructor-arg type="int" value="12"/>
+        <constructor-arg type="java.lang.String" value="jack"/>
+        <constructor-arg ref="user"/>
+    </bean>
+
+
+    <bean id="thirdCustomer" class="com.hyena.spring.core.model.Customer">
+        <constructor-arg type="int" value="12"/>
+        <constructor-arg type="java.lang.String" value="jack"/>
+        <constructor-arg ref="user"/>
+        <property name="user" ref="user"/>
+    </bean>
 
 </beans>

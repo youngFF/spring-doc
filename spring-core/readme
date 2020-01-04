@@ -19,4 +19,22 @@ spring-core
 
     1.spring AOP
 
+-------------------------------------------------------------
+学习路线：
+1.创建Spring容器：参考ApplicationContextTest.createSpringContainerTest
+2.配置bean ：参考config/app-config.xml中Customer的配置
+            参考ApplicationContextTest.beanDefinitionTest
+
+3.constructor-base DI，通过java构造函数设置bean依赖
+        参考：config/app-config.xml中anotherCustomer的配置
+
+  说明：constructor-base DI是通过构造函数参数类型匹配进行依赖设置的
+
+4.bean依赖注入过程
+    1.实例化，bean的无参构造函数(constructor with no-args)，或者bean的
+    有参构造函数(constructor with args)
+    2.setter注入，调用setter方法 ,注意：如果第一步有参构造函数已经注入了bean的所需依赖，
+    不需要setter注入
+
+
 
