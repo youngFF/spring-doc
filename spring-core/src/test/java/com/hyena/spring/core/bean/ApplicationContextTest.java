@@ -1,7 +1,6 @@
 package com.hyena.spring.core.bean;
 
 import com.hyena.spring.core.base.BaseTest;
-import com.hyena.spring.core.model.Customer;
 import com.hyena.spring.core.model.User;
 import org.junit.Test;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
@@ -102,18 +101,76 @@ public class ApplicationContextTest extends BaseTest {
     }
     // ------------------constructor-base DI unite end------------------//
 
+
     // ------------------setter-base DI unite     ------------------//
 
     /**
      * 测试目标：constructor-base和setter-base 混合配置
      * 测试数据：
-     * config/app-config.xml中thirdCustomer beab配置
-     * 测试结果：
-     *
+     * config/app-config.xml中thirdCustomer bean配置
+     * 测试结果：positive
      */
     @Test
     public void setterAndConstructorBaseDITest() {
         result = applicationContext.getBean("thirdCustomer");
     }
     // ------------------setter-base DI unite end------------------//
+
+    //------------- depends-on unite-----------//
+
+    /**
+     * 测试目标：depends-on属性
+     * 测试数据：config/app-config.xml中thirdCustomer bean配置
+     * 测试结果：
+     * positive
+     * 观察打印结果可以看到：user先实例化，然后是thirdCustomer
+     */
+    @Test
+    public void dependsOnTest() {
+        result = applicationContext.getBean("thirdCustomer");
+    }
+    //------------- depends-on unite end-----------//
+
+
+    //-------------- autowire unite -----------//
+
+
+    /**
+     * 测试目标：autowire具体的工作方式
+     * 测试数据：
+     *      config/app-config.xml中fourthCustomer配置
+     *
+     * 测试结果：
+     *       positive
+     *       说明：1。首先调用Customer无参构造方法，然后调用Customer属性的setter方法
+     *            2。把Customer的@Data注解去掉，结果是User通过autowire注入不进来
+     *
+     *       结论：autowire本质上是setter-base injection。bean属性需要有setter方法
+     *
+     */
+    @Test
+    public void autowireByTypeTest() {
+        result = applicationContext.getBean("fourthCustomer");
+    }
+
+
+    /**
+     * 测试目标：autowire的类型constructor效果
+     * 测试数据：
+     *      Customer有两个构造函数参数中都有User。
+     *      把只有一个User方法参数的构造函数注释前后分别测试。
+     *
+     * 测试结果：positive
+     *         注释前：spring调用只有User参数的构造方法
+     *         注释后：spring调用的无参构造方法
+     *
+     *         结论：autowire类型constructor只有在spring容器中发现某个构造函数的
+     *         参数类型全部满足时，才会调用这个构造函数。否则，会调用bean的无参
+     *         构造函数
+     */
+    @Test
+    public void autowireByConstructorTest() {
+        result = applicationContext.getBean("fifthCustomer");
+    }
+    //-------------- autowire unite end -----------//
 }

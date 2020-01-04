@@ -36,5 +36,22 @@ spring-core
     2.setter注入，调用setter方法 ,注意：如果第一步有参构造函数已经注入了bean的所需依赖，
     不需要setter注入
 
+4.depends-on属性：
+    参考：config/app-config.xml中thirdCustomer的配置
+    参考：ApplicationContextTest.dependsOnTest
+
+5.autowire类型constructor
+    参数：ApplicationContextTest.autowireByConstructorTest
+
+6.bean作用域
+    scope
+    prototype
+    request
+    session
+    application
+    websocket
+
+    参考：BeanScopeTest
+
 
 

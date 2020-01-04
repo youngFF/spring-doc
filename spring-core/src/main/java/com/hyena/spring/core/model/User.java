@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
 /**
  * 用户实体类
@@ -11,10 +12,11 @@ import lombok.NoArgsConstructor;
  * @author hyena
  */
 
-@NoArgsConstructor
+
 @AllArgsConstructor
 @Data
 @Builder
+@Log4j
 public class User {
 
     /**
@@ -28,4 +30,7 @@ public class User {
      */
     private Integer age;
 
+    public User() {
+       log.info("default constructor of User");
+    }
 }

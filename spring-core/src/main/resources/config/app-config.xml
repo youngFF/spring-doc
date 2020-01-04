@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
     <bean id="user" class="com.hyena.spring.core.model.User">
@@ -9,13 +11,16 @@
         <property name="name" value="hyena"/>
     </bean>
 
+    <bean id="supplier" class="com.hyena.spring.core.model.Supplier">
+            <aop:scoped-proxy/>
+    </bean>
 
     <bean id="customer" class="com.hyena.spring.core.model.Customer"
-        scope="singleton"
-        autowire="byType"
-        lazy-init="false"
-        init-method="init"
-        destroy-method="destroy">
+          scope="singleton"
+          autowire="byType"
+          lazy-init="false"
+          init-method="init"
+          destroy-method="destroy">
 
         <property name="name" value="jack"/>
         <property name="age" value="12"/>
@@ -30,11 +35,26 @@
     </bean>
 
 
-    <bean id="thirdCustomer" class="com.hyena.spring.core.model.Customer">
+    <bean id="thirdCustomer" class="com.hyena.spring.core.model.Customer" depends-on="user">
         <constructor-arg type="int" value="12"/>
         <constructor-arg type="java.lang.String" value="jack"/>
         <constructor-arg ref="user"/>
         <property name="user" ref="user"/>
+    </bean>
+
+    <bean id="fourthCustomer" class="com.hyena.spring.core.model.Customer"
+          autowire="byType"/>
+
+
+    <bean id="fifthCustomer" class="com.hyena.spring.core.model.Customer"
+          autowire="constructor"/>
+
+    <bean id="sixthCustomer" class="com.hyena.spring.core.model.Customer"
+          scope="prototype"/>
+
+    <bean id="seventhCustomer" class="com.hyena.spring.core.model.Customer"
+          scope="prototype">
+        <property name="supplier" ref="supplier"/>
     </bean>
 
 </beans>
