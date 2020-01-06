@@ -4,8 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-
-
+    <bean id="instantiateTraceBeanPostProcessor" class="com.hyena.spring.core.beanpostprocessor.InstantiateTraceBeanPostProcessor"/>
 
     <!--配置项目gson-->
     <bean id="gson" class="com.google.gson.Gson"/>

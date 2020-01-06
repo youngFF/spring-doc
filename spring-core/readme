@@ -54,4 +54,8 @@ spring-core
     参考：BeanScopeTest
 
 
+7.BeanPostProcessor接口：
+    参考：BeanProcessorTest.beanPostProcessorTest
+
+
 
