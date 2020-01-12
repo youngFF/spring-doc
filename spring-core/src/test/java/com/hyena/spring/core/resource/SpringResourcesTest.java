@@ -93,6 +93,38 @@ public class SpringResourcesTest extends BaseTest {
         result = resource.getInputStream();
     }
 
+
+    /**
+     * 测试目标：加载classpath上其它jar包的资源
+     * 测试数据：
+     *      url classpath:META-INF/spring.handlers spring-context jar下面的
+     * 测试结果：
+     *      negative
+     *      无法加载资源
+     * @throws IOException
+     */
+    @Test
+    public void classpathResourceTes2() throws IOException {
+        String url = "classpath:META-INF/spring.handlers";
+        ClassPathResource resource = new ClassPathResource(url);
+        result = resource.getInputStream();
+    }
+
+    /**
+     * 测试目标：使用getClassLoader().getResource加载资源
+     * 测试数据：
+     *      name META-INF/spring.handlers
+     * 测试目标：
+     *      positive
+     *
+     */
+    @Test
+    public void classpathResourceTest3() {
+        String name = "META-INF/spring.handlers";
+        result = getClass().getClassLoader().getResource(name);
+
+    }
+
     //------ClasspathResource test end-----//
 
     // ------------ fileSystemResource test ---//
