@@ -21,6 +21,9 @@ spring-core
 
 -------------------------------------------------------------
 学习路线：
+
+第一章：
+
 1.创建Spring容器：参考ApplicationContextTest.createSpringContainerTest
 2.配置bean ：参考config/app-config.xml中Customer的配置
             参考ApplicationContextTest.beanDefinitionTest
@@ -56,6 +59,22 @@ spring-core
 
 7.BeanPostProcessor接口：
     参考：BeanProcessorTest.beanPostProcessorTest
+
+
+第二章：
+1.Spring Resource
+Topic :
+        introduction
+        the Resource interface
+        built-in Resource implementation
+        ResourceLoader
+        ResourceLoaderAware
+        Resources as Dependencies
+        Application Contexts and resource paths
+
+2.每个类的使用方式
+    参考:com.hyena.spring.core.resource.SpringResourcesTest
+
 
 
 

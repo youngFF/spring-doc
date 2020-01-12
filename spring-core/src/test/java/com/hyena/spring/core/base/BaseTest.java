@@ -33,6 +33,6 @@ public abstract class BaseTest {
     @After
     public void printResult2Json() {
         String clazzName = getClass().getName();
-        log.info(clazzName + " : " + gson.toJson(result));
+        log.info(clazzName + " : " + result);
     }
 }
