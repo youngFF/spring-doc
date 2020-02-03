@@ -76,5 +76,52 @@ Topic :
     参考:com.hyena.spring.core.resource.SpringResourcesTest
 
 
+第三章：Validation , data binding and type conversion
+
+introduction:
+
+Validation:
+there are props and cons for considering validation as business logic, and spring offers
+a design for validation(and data binding) that does not exclude either of them . specifically,
+validation should not be tied to the web tier and should be easy to localize . and it should be possible to
+plugin any available validator. considering these concerns , spring has come up with a
+Validator interface that is both basic and eminently(特别) usable in any layer of an application
+
+DataBinding
+
+data binding is useful for letting user input be dynamically bound to the domain model of an
+application .
+
+BeanWrapper
+
+the BeanWrapper is fundamental concept in the spring framework and is used in a lot
+of places.
+
+
+
+
+3。1 validation by using spring's validator interface // 使用spring验证接口
+
+ValidationUtils.rejectIfEmpty(Errors errors, String field, String errorCode)
+
+Reject the given field with given error code if the value is empty.
+An 'empty' value in this context means either null or the empty string "".
+the object whose field is being validated does not need to be passed in because
+the Errors instance can resolve field values by itself(it will usually hold an internal reference to
+the target object).
+
+Parameters:
+    errors - the Errors instance to register errors on
+    field - the field name to check
+    errorCode - the error code, interpretable as message key
+
+
+
+3.2 data binding
+
+
+3.3 type conversion
+
+
 
 
