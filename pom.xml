@@ -17,6 +17,8 @@
         <module>spring-boot</module>
         <module>spring-sesison</module>
         <module>spring-cloud</module>
+        <module>spring-boot</module>
+        <module>spring-base</module>
     </modules>
 
     <name>spring-doc</name>
@@ -213,21 +215,22 @@
         </dependency>
     </dependencies>
 
+
     <build>
         <resources>
             <resource>
-                <directory>${project.basedir}/src/main/java</directory>
+                <directory>${project.basedir}/*/src/main/java</directory>
             </resource>
             <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
+                <directory>${project.basedir}/*/src/main/resources</directory>
             </resource>
         </resources>
         <testResources>
             <testResource>
-                <directory>${project.basedir}/src/test/java</directory>
+                <directory>${project.basedir}/*/src/test/java</directory>
             </testResource>
             <testResource>
-                <directory>${project.basedir}/src/test/resources</directory>
+                <directory>${project.basedir}/*/src/test/resources</directory>
             </testResource>
         </testResources>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
