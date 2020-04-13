@@ -13,8 +13,12 @@ public abstract class BaseTest {
     @Autowired
     private Gson gson;
 
-    public void printReslt() {
-        log.info("result: " + gson.toJson(result));
+    public void printResult() {
+        try {
+            log.info("result: " + gson.toJson(result));
+        } catch (Exception e) {
+            // do nothing
+        }
     }
 
 
