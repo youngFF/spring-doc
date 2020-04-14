@@ -34,7 +34,7 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 根据Id获取user对象
+     * 不传入id
      *
      * @return
      */
