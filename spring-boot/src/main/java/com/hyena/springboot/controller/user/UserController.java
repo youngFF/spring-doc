@@ -32,4 +32,26 @@ public class UserController extends BaseController {
 
         return JsonCommonResponse.success(user);
     }
+
+    /**
+     * 根据Id获取user对象
+     *
+     * @return
+     */
+    @RequestMapping(value = "/put", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public JsonCommonResponse<User> putUser(@RequestBody() Map<String, Long> map) {
+        Long id = map.get("id");
+        log.info("id: " + id);
+        User user = User.builder().age(12).name("hyena").build();
+
+        if (id == null) {
+            throw new RuntimeException("id不存在");
+        }
+
+        return JsonCommonResponse.success(user);
+    }
+
+
+
 }
