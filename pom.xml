@@ -10,12 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-core</module>
-        <module>spring-web-servle-tstack</module>
+        <module>spring-web-servlet-stack</module>
         <module>spring-web-reactive-stack</module>
         <module>spring-test</module>
         <module>spring-integration</module>
         <module>spring-boot</module>
-        <module>spring-sesison</module>
+        <module>spring-session</module>
         <module>spring-cloud</module>
         <module>spring-boot</module>
         <module>spring-base</module>
