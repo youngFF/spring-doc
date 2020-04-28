@@ -17,7 +17,6 @@
         <module>spring-boot</module>
         <module>spring-session</module>
         <module>spring-cloud</module>
-        <module>spring-boot</module>
         <module>spring-base</module>
     </modules>
 
