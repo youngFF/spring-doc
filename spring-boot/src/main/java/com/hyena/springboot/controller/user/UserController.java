@@ -53,5 +53,13 @@ public class UserController extends BaseController {
     }
 
 
+    @RequestMapping(value = "/returnStr", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public String putsUser(@RequestBody() Map<String, Long> map) {
+
+        return "hellowrold";
+    }
+
+
 
 }
