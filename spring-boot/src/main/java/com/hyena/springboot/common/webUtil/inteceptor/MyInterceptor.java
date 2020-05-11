@@ -1,6 +1,8 @@
 package com.hyena.springboot.common.webUtil.inteceptor;
 
+import com.google.gson.Gson;
 import lombok.extern.log4j.Log4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,15 +16,14 @@ import java.util.Enumeration;
 @Component
 public class MyInterceptor implements HandlerInterceptor {
 
+    @Autowired
+    private Gson gson;
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Enumeration<String> headerNames = request.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            String name = headerNames.nextElement();
-            log.info("headerNames: " + name);
-        }
-
+        log.info("request heads: " + gson.toJson(headerNames));
         return true;
     }
 
